@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SysInfo</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <style>
+        body{
+            width: 100vw;
+            min-height: 100vw;
+            height: 100%;
+        }
+        img{
+            margin: 50px;
+        }
+        .loader {
+            z-index: 2;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        display: none;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        [data-active='true']{
+            display: block !important;
+        }
+
+        .shadow{
+            position: fixed;
+            display: none;
+            inset: 0;
+            background-color: rgba(239, 239, 239, 0.719);
+        }
+    </style>
+    <div class="loader" data-active="false"></div>
+    <div data-active="false" class="shadow"></div>
+    <div class="wrapper">
+        <h1>DALL-E API UI</h1>
+        <form>
+            <input placeholder="your key" id="apiKey" type="text">
+            <input placeholder="prompt" id="prompt" type="text">
+            <input placeholder="number of images" type="number" name="number" id="number">
+            <input type="radio" name="size" value="256x256" id="x256">
+            <label for="x256">
+                256x256
+            </label>
+            <input type="radio" name="size" value="512x512" id="x512">
+            <label for="x512">
+                512x512
+            </label>
+            <input type="radio" name="size" value="1024x1024" id="x1024">
+            <label for="x1024">
+                1024x1024
+            </label>
+            <button>Generate Images</button>
+        </form>
+    </div>
+    <div class="imgs">
+
+    </div>
+</body>
+</html>
